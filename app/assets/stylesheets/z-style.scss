@@ -1,91 +1,55 @@
-/* -- header --*/
-.header {
-  background-color: #FFA200;
-  color: white;
-  .caption  {
-    width: 100%;
-    border-right: 2px solid white;
+#feature {
+  padding-bottom: 50px;
+}
+#calc table {
+  td {
+    vertical-align: middle;
+    padding-left: 20px;
+    border: 5px solid #FFFFFF;
   }
 }
-h1 {
-  font-weight: bold;
-  font-size: 3.0em;
-}
-
-@media screen and (max-width: 750px) {
-  h1 {
-    font-size: 2.2em;
+.gibdd-checkbox {
+  color: #FFFFFF;
+  .material-switch > input[type="checkbox"] {
+      display: none;   
   }
-}/* -- header --*/
-
-/*-- slider --*/
-.flex-caption {
-  color: white;
-  text-transform: uppercase;
-  font-size: 2.0em;
-}
-.flexslider .slides li {
-  position:relative;
-}
-.flex-control-nav {
-  display: none;
-}
-.flex-caption {
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  background:#000; /* whatever you want */    
-  z-index:1;
-  padding:15px;
-  background-color: rgba(128,128,128, 0.7)
-}/*-- slider --*/
-
-.products {
-  h2,h3 {
-    padding: 0;
-    margin: 0;
+  .material-switch > label {
+      cursor: pointer;
+      height: 0px;
+      position: relative; 
+      width: 40px;  
   }
-  h2 {
-    color: #516870;
+  .material-switch > label::before {
+      background: rgb(0, 0, 0);
+      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      content: '';
+      height: 16px;
+      margin-top: -8px;
+      position:absolute;
+      opacity: 0.3;
+      transition: all 0.4s ease-in-out;
+      width: 40px;
   }
-  h3 {
-    color: #FFA200;
+  .material-switch > label::after {
+      background: rgb(255, 255, 255);
+      border-radius: 16px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+      content: '';
+      height: 24px;
+      left: -4px;
+      margin-top: -8px;
+      position: absolute;
+      top: -4px;
+      transition: all 0.3s ease-in-out;
+      width: 24px;
   }
-  .caption-button {
-    width: auto;
-    background-color:#FFA200;
-    text-align: center;
-    padding: 3px;
-    margin: 3px 0 3px 0;
-    h3 {
-      color: white;
-      font-weight: bold;
-    }
+  .material-switch > input[type="checkbox"]:checked + label::before {
+      background: inherit;
+      opacity: 0.5;
   }
-  .caption-button:hover,.caption-button:after {
-    cursor: pointer;
-    background-color:#BC741C;
-  }
-}
-.footer {
-  background-color: #546871;
-  .social {
-    ul {
-      display: inline-block;
-    }
-    .col-md-12 {
-      text-align: center;
-    }
-    ul li {
-      margin-right: 10px;
-      font-size: 3.2em;
-      display: inline;
-    }
-    h2 {
-      text-transform: uppercase;
-      font-size: 2.2em;
-      color: white;
-    }
+  .material-switch > input[type="checkbox"]:checked + label::after {
+      background: inherit;
+      left: 20px;
   }
 }

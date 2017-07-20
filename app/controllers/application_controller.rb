@@ -5,15 +5,26 @@ class ApplicationController < ActionController::Base
   def initialize
     super
     content
+    pages
   end
 
   def content
     Content.all.each do |c|
       @social = c if c.url == 'social'
-      @service_1 = c if c.url == 'service_1'
-      @service_2 = c if c.url == 'service_2'
-      @super_info = c if c.url == 'super_info'
-      @logo = c if c.url == 'logo'
+      @header = c if c.url == 'header'
+      @head = c if c.url == 'head'
+      @super = c if c.url == 'super'
+      @logo1 = c if c.url == 'logo1'
+      @logo2 = c if c.url == 'logo2'
+    end
+    eval @header.description
+  end
+  def pages
+    @services = []
+    Page.all.each do |p|
+      @services << p if p.url == 'service'
+      @text0 = p if p.url == 'text0'
     end
   end
+
 end
