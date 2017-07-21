@@ -50,3 +50,10 @@ bower.json
 .powenv
 
 # Ignore Byebug command
+Gemfile.lock
+
+._.DS_Store
+.DS_Store
+._*
+
+screenlog.0
