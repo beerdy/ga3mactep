@@ -11,19 +11,23 @@ class ApplicationController < ActionController::Base
   def content
     Content.all.each do |c|
       @social = c if c.url == 'social'
-      @header = c if c.url == 'header'
-      @head = c if c.url == 'head'
+      @head = c if c.url == 'head'      
       @super = c if c.url == 'super'
       @logo1 = c if c.url == 'logo1'
       @logo2 = c if c.url == 'logo2'
+      eval c.description if c.url == 'value'
     end
-    eval @header.description
   end
   def pages
     @services = []
+    @tarifs = []
     Page.all.each do |p|
+      @tarifs << p if p.url == 'tarif'
       @services << p if p.url == 'service'
+      @textx = p if p.url == 'textx'
       @text0 = p if p.url == 'text0'
+      @text1 = p if p.url == 'text1'
+      @text2 = p if p.url == 'text2'
     end
   end
 

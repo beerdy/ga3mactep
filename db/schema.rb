@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618140604) do
+ActiveRecord::Schema.define(version: 20170721120054) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "title"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170618140604) do
     t.integer  "sort"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "value"
   end
 
   create_table "products", force: :cascade do |t|
@@ -45,6 +46,21 @@ ActiveRecord::Schema.define(version: 20170618140604) do
     t.string   "image_name"
     t.string   "url"
     t.integer  "sort"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "regards", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "slave"
+    t.string   "image_uid"
+    t.string   "image_name"
+    t.string   "url"
+    t.integer  "sort"
+    t.date     "date"
+    t.boolean  "finished"
+    t.boolean  "disabled"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

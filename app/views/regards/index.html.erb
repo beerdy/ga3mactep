@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Regards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Slave</th>
+      <th>Image uid</th>
+      <th>Image name</th>
+      <th>Url</th>
+      <th>Sort</th>
+      <th>Date</th>
+      <th>Finished</th>
+      <th>Disabled</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regards.each do |regard| %>
+      <tr>
+        <td><%= regard.title %></td>
+        <td><%= regard.description %></td>
+        <td><%= regard.slave %></td>
+        <td><%= regard.image_uid %></td>
+        <td><%= regard.image_name %></td>
+        <td><%= regard.url %></td>
+        <td><%= regard.sort %></td>
+        <td><%= regard.date %></td>
+        <td><%= regard.finished %></td>
+        <td><%= regard.disabled %></td>
+        <td><%= link_to 'Show', regard %></td>
+        <td><%= link_to 'Edit', edit_regard_path(regard) %></td>
+        <td><%= link_to 'Destroy', regard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Regard', new_regard_path %>

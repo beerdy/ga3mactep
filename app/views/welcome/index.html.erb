@@ -129,8 +129,8 @@
             <div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
 
                 <!-- /.feature title -->
-                <h2><%=@head1%></h2>
-                <p><%=@subhead1%>.</p>
+                <h2><%=@textx.title%></h2>
+                <%=@textx.description.html_safe%>
             </div>
         </div>
         <div class="row row-feat">
@@ -168,17 +168,14 @@
 
             <!-- /.feature content -->
             <div class="col-md-6 wow fadeInLeft">
-                <h2>Learn how to make your app marketing efficient</h2>
-                <p>Good marketing makes the company look smart. <span class="highlight">Great marketing</span> makes the customer feel smart, - Joe Chernov. Never doubt a small group of thoughtful, committed people can change the world. Indeed, it is the only thing that ever has, - Margaret Mead. The best way to predict the future is to create it, - Peter Drucker.
-                </p>
-
-                <div class="btn-section"><a href="#download" class="btn-default">Download Now</a></div>
-
+                <h2><%=@text1.title%></h2>
+                <%=@text1.description.html_safe%>
+                <div class="btn-section"><a href="#download" class="btn-default">Написать нам</a></div>
             </div>
 
             <!-- /.feature image -->
             <div class="col-md-6 feature-2-pic wow fadeInRight">
-                <img src="assets/feature2-image.jpg" alt="macbook" class="img-responsive">
+                <%= image_tag @text1.image.url, alt: @text1.title, class: "img-responsive" if @text1.image_stored?%>
             </div>                
         </div>            
 
@@ -194,12 +191,12 @@
                 <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
 
                     <!-- /.download title -->
-                    <h2 class="wow fadeInRight">Would like to know more?</h2>
-                    <p class="download-text wow fadeInLeft">We'll research the market, identify the right target audience, analyze competitors and avoid users churn to increase retention. Download now for free and join with thousands happy clients.</p>
+                    <h2 class="wow fadeInRight"><%=@text2.title%></h2>
+                    <div class="download-text wow fadeInLeft"><%=@text2.description.html_safe%></div>
 
                     <!-- /.download button -->
                     <div class="download-cta wow fadeInLeft">
-                        <a href="#contact" class="btn-secondary">Get Connected</a>
+                        <a href="#contact" class="btn-secondary">Связаться с нами</a>
                     </div>
                 </div>  
             </div>  
@@ -213,152 +210,37 @@
         <div class="text-center">
 
             <!-- /.pricing title -->
-            <h2 class="wow fadeInLeft">PACKAGES</h2>
+            <h2 class="wow fadeInLeft">ТАРИФЫ</h2>
             <div class="title-line wow fadeInRight"></div>
         </div>
         <div class="row package-option">
-
+            <%count=0;@tarifs.sort_by(&:sort).each do |tarif|%>
+            <%= count>=4? (count=1;'</div><div class="row package-option">'.html_safe) : (count+=1;'') %>
             <!-- /.package 1 -->
             <div class="col-sm-3">
                 <div class="price-box wow fadeInUp">
                     <div class="price-heading text-center">
-
                         <!-- /.package icon -->
-                        <i class="pe-7s-radio pe-5x"></i>
-
+                        <i class="<%=tarif.slave%> pe-5x"></i>
                         <!-- /.package name -->
-                        <h3>Basic</h3>
+                        <h3><%=tarif.title%></h3>
                     </div>
-
                     <!-- /.price -->
                     <div class="price-group text-center">
-                        <span class="dollar">$</span>
-                        <span class="price">9</span>
-                        <span class="time">/mo</span>
+                        <span class="dollar ot">от</span>
+                        <span class="price"><%=tarif.value%></span>
+                        <span class="time"><i class="fa fa-rub" aria-hidden="true"></i></span>
                     </div>
-
-                    <!-- /.package features -->
-                    <ul class="price-feature text-center">
-                        <li><strong>100MB</strong> Disk Space</li>
-                        <li><strong>200MB</strong> Bandwidth</li>
-                        <li><strong>2</strong> Subdomains</li>
-                        <li><strong>5</strong> Email Accounts</li>
-                        <li><strike>Webmail Support</strike></li>                 
-                    </ul>
-
+                    <%=tarif.description.html_safe%>
                     <!-- /.package button -->
                     <div class="price-footer text-center">
-                        <a class="btn btn-price" href="#">BUY NOW</a>
+                        <a class="btn btn-price" href="#">ЗАКАЗАТЬ УСЛУГУ</a>
                     </div>  
                 </div>
             </div>
-
-            <!-- /.package 2 -->
-            <div class="col-sm-3">
-                <div class="price-box wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="price-heading text-center">
-
-                        <!-- /.package icon -->
-                        <i class="pe-7s-joy pe-5x"></i>
-
-                        <!-- /.package name -->
-                        <h3>Standard</h3>
-                    </div>
-
-                    <!-- /.price -->
-                    <div class="price-group text-center">
-                        <span class="dollar">$</span>
-                        <span class="price">19</span>
-                        <span class="time">/mo</span>
-                    </div>
-
-                    <!-- /.package features -->
-                    <ul class="price-feature text-center">
-                        <li><strong>300MB</strong> Disk Space</li>
-                        <li><strong>400MB</strong> Bandwidth</li>
-                        <li><strong>5</strong> Subdomains</li>
-                        <li><strong>10</strong> Email Accounts</li>
-                        <li><strike>Webmail Support</strike></li>             
-                    </ul>
-
-                    <!-- /.package button -->
-                    <div class="price-footer text-center">
-                        <a class="btn btn-price" href="#">BUY NOW</a>
-                    </div>
-                </div>
-            </div>  
-
-            <!-- /.package 3 -->
-            <div class="col-sm-3">
-                <div class="price-box wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="price-heading text-center">
-
-                        <!-- /.package icon -->
-                        <i class="pe-7s-science pe-5x"></i>
-
-                        <!-- /.package name -->
-                        <h3>Advance</h3>
-                    </div>
-
-                    <!-- /.price -->
-                    <div class="price-group text-center">
-                        <span class="dollar">$</span>
-                        <span class="price">29</span>
-                        <span class="time">/mo</span>
-                    </div>
-
-                    <!-- /.package features -->
-                    <ul class="price-feature text-center">
-                        <li><strong>1GB</strong> Disk Space</li>
-                        <li><strong>1GB</strong> Bandwidth</li>
-                        <li><strong>10</strong> Subdomains</li>
-                        <li><strong>25</strong> Email Accounts</li>
-                        <li>Webmail Support</li>                      
-                    </ul>
-
-                    <!-- /.package button -->
-                    <div class="price-footer text-center">
-                        <a class="btn btn-price" href="#">BUY NOW</a>
-                    </div>  
-                </div>
-            </div>
-
-            <!-- /.package 4 -->
-            <div class="col-sm-3">
-                <div class="price-box wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="price-heading text-center">
-
-                        <!-- /.package icon -->
-                        <i class="pe-7s-tools pe-5x"></i>
-
-                        <!-- /.package name -->
-                        <h3>Ultimate</h3>
-                    </div>
-
-                    <!-- /.price -->
-                    <div class="price-group text-center">
-                        <span class="dollar">$</span>
-                        <span class="price">49</span>
-                        <span class="time">/mo</span>
-                    </div>
-
-                    <!-- /.package features -->
-                    <ul class="price-feature text-center">
-                        <li><strong>5GB</strong> Disk Space</li>
-                        <li><strong>5GB</strong> Bandwidth</li>
-                        <li><strong>50</strong> Subdomains</li>
-                        <li><strong>50</strong> Email Accounts</li>
-                        <li>Webmail Support</li>              
-                    </ul>
-
-                    <!-- /.package button -->
-                    <div class="price-footer text-center">
-                        <a class="btn btn-price" href="#">BUY NOW</a>
-                    </div>
-                </div>
-            </div>
-
+            <%end%>
         </div>
+
     </div>
 </div>
 
@@ -367,10 +249,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <img alt="client" src="assets/client1.png" class="wow fadeInUp">
-                <img alt="client" src="assets/client2.png" class="wow fadeInUp" data-wow-delay="0.2s">
-                <img alt="client" src="assets/client3.png" class="wow fadeInUp" data-wow-delay="0.4s">
-                <img alt="client" src="assets/client4.png" class="wow fadeInUp" data-wow-delay="0.6s">
+                <%delay=0;Product.all.each do |product| %>
+                <img alt="<%=product.title%>" src="<%=product.image.url%>" class="wow fadeInUp" data-wow-delay="0.<%=delay%>s">
+                <%delay+=2;end%>
             </div>
         </div>
     </div>  
@@ -380,70 +261,31 @@
 <div id="testi">
     <div class="container">
         <div class="text-center">
-            <h2 class="wow fadeInLeft"><%=@head_last%></h2>
+            <h2 class="wow fadeInLeft"><%=@badgas%></h2>
             <div class="title-line wow fadeInRight"></div>
         </div>
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1"> 
                 <div id="owl-testi" class="owl-carousel owl-theme wow fadeInUp">
-
-                    <!-- /.testimonial 1 -->
+                    <% Regard.all.each do |regard|%>
+                    <%place,city=regard.slave.split ';'%>
                     <div class="testi-item">
                         <div class="client-pic text-center">
-
-                            <!-- /.client photo -->
-                            <img src="assets/testi1.png" alt="client">
+                            <%= image_tag regard.image.url, alt: regard.slave %>
                         </div>
                         <div class="box">
-
-                            <!-- /.testimonial content -->
-                            <p class="message text-center">"We are very happy and satisfied with Backyard service. Our account manager is efficient and very knowledgeable. It was able to create a vast fan base within very short period of time. We would highly recommend Backyard App to anyone."</p>
+                            <div class="message text-center">
+                                <%=regard.description.html_safe%>
+                                <%if regard.url != '' or not regard.url.nil? %>
+                                <br><a href="<%=regard.url%>">ссылка на источник</a>
+                                <%end%>
+                            </div>
                         </div>
                         <div class="client-info text-center">
-
-                            <!-- /.client name -->
-                            Jennifer Lopez, <span class="company">Microsoft</span>  
+                            <%=place%>, <span class="company"><%=city%></span>
                         </div>
                     </div>      
-
-                    <!-- /.testimonial 2 -->
-                    <div class="testi-item">
-                        <div class="client-pic text-center">
-
-                            <!-- /.client photo -->
-                            <img src="assets/testi2.png" alt="client">
-                        </div>
-                        <div class="box">
-
-                            <!-- /.testimonial content -->
-                            <p class="message text-center">"Everything looks great... Thanks for the quick revision turn around. We were lucky to find you guys and will definitely be using some of your other services in the near future."</p>
-                        </div>
-                        <div class="client-info text-center">
-
-                            <!-- /.client name -->
-                            Mike Portnoy, <span class="company">Dream Theater</span>    
-                        </div>
-                    </div>              
-
-                    <!-- /.testimonial 3 -->
-                    <div class="testi-item">
-                        <div class="client-pic text-center">
-
-                            <!-- /.client photo -->
-                            <img src="assets/testi3.png" alt="client">
-                        </div>
-                        <div class="box">
-
-                            <!-- /.testimonial content -->
-                            <p class="message text-center">"Overall, the two reports were very clear and helpful so thank you for the suggestion to do the focus group. We are currently working with our developer to implement some of these suggestions."</p>
-                        </div>
-                        <div class="client-info text-center">
-
-                            <!-- /.client name -->
-                            Jennifer Love Hewitt, <span class="company">Lead Vocal</span>   
-                        </div>
-                    </div>          
-
+                    <%end%>
                 </div>
             </div>  
         </div>  
