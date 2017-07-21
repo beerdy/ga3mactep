@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
       @super = c if c.url == 'super'
       @logo1 = c if c.url == 'logo1'
       @logo2 = c if c.url == 'logo2'
+      @code = c if c.url == 'code'
+      @copyright = c if c.url == 'copyright'
       eval c.description if c.url == 'value'
+
     end
   end
   def pages
@@ -28,6 +31,7 @@ class ApplicationController < ActionController::Base
       @text0 = p if p.url == 'text0'
       @text1 = p if p.url == 'text1'
       @text2 = p if p.url == 'text2'
+      @text3 = p if p.url == 'text3'
     end
   end
 
