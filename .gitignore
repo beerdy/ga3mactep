@@ -3,18 +3,25 @@ capybara-*.html
 .rspec
 /log
 /tmp
-#/db/*.sqlite3
-/db/*.sqlite3-journal
-#/public/system
+/shared
+
+/public/system/dragonfly/production
+/public/assets
+
 /coverage/
 /spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
 
-# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
-#config/initializers/secret_token.rb
+db/schema.rb
+db/data.yml
+db/development.sqlite3
 
+# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
+config/initializers/secret_token.rb
+config/database.yml
+config/puma.rb
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
 
@@ -27,8 +34,10 @@ pickle-email-*.html
 /vendor/bundle
 
 # these should all be checked in to normalize the environment:
-Gemfile.lock, .ruby-version, .ruby-gemset
-
+Gemfile.lock
+.ruby-version
+.ruby-gemset
+Gemfile
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
@@ -40,5 +49,4 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-# Ignore Byebug command history file.
-.byebug_history
+# Ignore Byebug command
