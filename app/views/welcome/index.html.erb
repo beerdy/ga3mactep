@@ -29,25 +29,26 @@
 
                     <div class="signup-header wow fadeInUp" id="shadow_style">
                         <h3 class="form-title text-center">УЗНАТЬ ЦЕНУ ПЕРЕХОДА НА ГБО</h3>
-                        <form class="form-header" action="http://moxdesign.us10.list-manage.com/subscribe/post" role="form" method="POST" id="#">
+                        <!-- <form class="form-header" action="http://moxdesign.us10.list-manage.com/subscribe/post" role="form" method="POST" id="#"> -->
+                        <%= form_for @message, :html => {:class => 'form-header', 'role' => 'form', :id => "#" } do |f| %>
                             <input type="hidden" name="u" value="503bdae81fde8612ff4944435">
                             <input type="hidden" name="id" value="bfdba52708">
                             <div class="form-group">
-                                <input class="form-control input-lg" name="MERGE1" id="name" type="text" placeholder="Как к Вам обращаться" required>
+                                <input class="form-control input-lg" name="message[name]" id="name" type="text" placeholder="Как к Вам обращаться" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" name="MERGE1" id="name" type="text" placeholder="Укажите контакт" required>
+                                <input class="form-control input-lg" name="message[contact]" id="name" type="text" placeholder="Укажите контакт" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" name="MERGE1" id="name" type="text" placeholder="Модель машины" required>
+                                <input class="form-control input-lg" name="message[model]" id="name" type="text" placeholder="Модель машины" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" name="MERGE0" id="email" type="text" placeholder="Год выпуска" required>
+                                <input class="form-control input-lg" name="message[year]" id="email" type="text" placeholder="Год выпуска" required>
                             </div>
                             <div class="form-group gibdd-checkbox">
                                 Зарегистрировать оборудование в ГИБДД
                                 <div class="material-switch pull-right">
-                                    <input id="someSwitchOptionPrimary" name="someSwitchOption001" type="checkbox"/>
+                                    <input id="someSwitchOptionPrimary"  name="message[gibdd]" type="checkbox"/>
                                     <label for="someSwitchOptionPrimary" class="label-primary"></label>
                                 </div>
                             </div>
@@ -55,7 +56,7 @@
                                 <input type="submit" class="btn btn-warning btn-block btn-lg" value="УЗНАТЬ">
                             </div>
                             <p class="privacy text-center">Нажимая на кнопку отправить, Вы соглашаетесь с обработкой персональных данных <a href="privacy.html">privacy policy</a>.</p>
-                        </form>
+                        <%end%>
                     </div>              
 
                 </div>

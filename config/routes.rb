@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :regards
   devise_for :users
   resources :products
