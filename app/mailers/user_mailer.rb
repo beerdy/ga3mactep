@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
   def welcome_email(message)
     @message = message
     @url  = 'http://ga3mactep@yandex.ru'
-    mail(to: 'ss48.a@yandex.ru', subject: 'GA3MACTEP message')
+    mail(to: 'mr.nikolay1983@mail.ru', subject: 'GA3MACTEP message')
   end
 end
